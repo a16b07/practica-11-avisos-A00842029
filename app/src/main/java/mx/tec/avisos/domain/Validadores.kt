@@ -19,6 +19,8 @@ object CredencialesValidator {
 
     fun sonValidas(usuario: String, password: String): Boolean =
         usuarioValido(usuario) && passwordValida(password)
+
+
 }
 
 object AvisoValidator {
@@ -28,9 +30,11 @@ object AvisoValidator {
     const val CUERPO_MIN = 10
     const val CUERPO_MAX = 400
 
-    fun tituloValido(titulo: String): Boolean = titulo.trim().length in TITULO_MIN..TITULO_MAX
+    fun tituloValido(titulo: String): Boolean = titulo.trim().length in TITULO_MIN until TITULO_MAX
 
     fun cuerpoValido(cuerpo: String): Boolean = cuerpo.trim().length in CUERPO_MIN..CUERPO_MAX
 
     fun esValido(titulo: String, cuerpo: String): Boolean = tituloValido(titulo) && cuerpoValido(cuerpo)
+
+
 }
